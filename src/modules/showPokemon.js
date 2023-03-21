@@ -30,16 +30,16 @@ function createListItem(pokemonData) {
     .join(", ");
 
   listItem.innerHTML = `
-      <img class="item-image" src="${pokemonData.sprites.front_default}">
-      <span class="item-name">${pokemonData.name}</span>
-      <span class="item-name">${pokemonData.weight}</span>
-      <span class="item-name">Abilities: ${abilities}</span>
-      <span class="item-name">Stats: ${stats}</span>
-      <button class = "comments">Comment</button>
-      <button class="like-button">
-        Like <span class="badge">0</span>
-      </button>
-    `;
+    <img class="item-image" src="${pokemonData.sprites.front_default}">
+        <span class="item-name">${pokemonData.name}</span>
+        <span class="item-name">${pokemonData.weight}</span>
+        <span class="item-name">Abilities: ${abilities}</span>
+        <span class="item-name">Stats: ${stats}</span>
+        <button class = "comments">Comment</button>
+        <button class="like-button">
+          Like <span class="badge">0</span>
+        </button>
+      `;
 
   const likeButton = listItem.querySelector(".like-button");
   const likeCount = listItem.querySelector(".badge");

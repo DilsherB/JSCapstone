@@ -8,16 +8,25 @@
 </head>
 <body>
     <nav>
-        <h1>Pokemon Logo</h1>
-        <div class="nav-items">
-            <p>All pokemon</p>
-            <p>Abilities</p>
-            <p>Stats</p>
-        </div>
+      <h1>Pokemon Logo</h1>
+      <div class="nav-items">
+        <a href="#pokemon" class = "pokemon-nav">All pokemon</a>
+        <a href="#type-abilities" class = "type-nav">Type&Abilities</a>
+        <a href="#stats" class = "stats-nav">Stats</a>
+      </div>
     </nav>
-    <h2>Pokemon</h2>
-    
-    <ul id="likeable-items"></ul>
+    <div id="pokemon">
+      <h2>Pokemon</h2>
+      <ul id="likeable-items"></ul>
+    </div>
+    <div id="type-abilities">
+      <h2>Type & Abilities</h2>
+      <!-- Add your type and abilities content here -->
+    </div>
+    <div id="stats">
+      <h2>Stats</h2>
+      <!-- Add your stats content here -->
+    </div>
     <script defer type="module" src="./index.js"></script>
-</body>
+  </body>
 </html>
