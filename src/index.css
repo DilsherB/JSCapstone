@@ -47,6 +47,9 @@ nav a:hover {
   font-size: 20px;
   margin-right: 10%;
 }
+#pokemon{
+  margin-top: 5%;
+}
 #pokemon ul {
   list-style: none;
   padding: 0;
@@ -63,7 +66,7 @@ nav a:hover {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  height: 400px;
+  height: 350px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -73,53 +76,56 @@ nav a:hover {
   cursor: pointer;
 }
 
-#pokemon li .item-name {
+ .item-name {
+  display: flex;
   font-size: 18px;
-  font-weight: bold;
   text-align: center;
   margin-top: 10px;
 }
 
-#pokemon li .item-image {
+ li .item-image {
   height: 120px;
   width: 120px;
   object-fit: cover;
   margin-top: 10px;
 }
-
+#like{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin-left: 30px;
+}
 .like-button {
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  color: #333;
-  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  color: #000;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 30px;
   cursor: pointer;
+  float: right;
 }
 
- .badge {
-  position: absolute;
-  top: -10px;
-  right: -20px;
-  background-color: red;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 5px;
-  min-width: 20px;
-  text-align: center;
-}
-
-li .like-button:hover {
-  background-color: #eee;
+ .like-button:hover {
+  color: #f42c2c;
 }
 .like-comment{
   display:flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .like-comment button{
  margin: 5px;
+
+}
+.comments{
+  font-size: 16px;
+  height: 40px;
+  width: 90px;
+}
+.reservation{
+  font-size: 16px;
+  width: 110px;
+  height: 40px;
 }
 #type-abilities {
   margin-top: 5%;
@@ -131,7 +137,7 @@ li .like-button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size:32px;
+  font-size:28px;
   margin-bottom: 35px;
   padding: 10px;
   border-radius: 5px;
@@ -153,7 +159,7 @@ li .like-button:hover {
 }
 
 #stats {
-  font-size:  32px;
+  font-size: 28px;
   list-style: none;
   padding: 0;
 }
