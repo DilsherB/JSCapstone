@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 5px;
+  text-transform: capitalize;
 }
 .logo {
   width: 300px;
@@ -13,9 +14,9 @@ body {
   text-shadow: 2px 2px #000000;
   border-radius: 10px;
   box-shadow: 3px 3px #000000;
-  margin: 0 0;
+  margin: 0;
+  margin-left: 30px;
   line-height: 50px;
-  float: left;
 }
 h1 {
   margin-bottom: 20px;
@@ -26,10 +27,10 @@ nav {
   top: 0;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #333;
   color: #fff;
-  width: 95%;
+  width: 97%;
   opacity: 0.8;
 }
 
@@ -42,19 +43,10 @@ nav a {
 nav a:hover {
   color: #ccc;
 }
-
-#pokemon,
-#stats {
-  padding: 2rem;
-  display: none;
+.nav-items{
+  font-size: 20px;
+  margin-right: 10%;
 }
-
-#pokemon,
-#stats {
-  display: block;
-  margin-top: 4%;
-}
-
 #pokemon ul {
   list-style: none;
   padding: 0;
@@ -129,21 +121,62 @@ li .like-button:hover {
 .like-comment button{
  margin: 5px;
 }
-
 #type-abilities {
+  margin-top: 5%;
   list-style: none;
   padding: 0;
-  margin: 0 auto;
 }
+
 #type-abilities li {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 200px;
-  padding: 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
+  font-size:32px;
+  margin-bottom: 35px;
+  padding: 10px;
   border-radius: 5px;
-  font-family: Arial, sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#type-abilities li:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.pokemon-name {
+  font-weight: bold;
+}
+
+.pokemon-types,
+.pokemon-abilities {
+  font-size: 0.8em;
+  color: #666;
+}
+
+#stats {
+  font-size:  32px;
+  list-style: none;
+  padding: 0;
+}
+
+#stats li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#stats li:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.pokemon-name {
+  font-weight: bold;
+}
+
+.pokemon-stats {
+  font-size: 0.8em;
+  color: #666;
 }

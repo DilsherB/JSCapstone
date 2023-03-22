@@ -36,24 +36,22 @@ function createListItem(pokemonData) {
   const likeCount = listItem.querySelector(".badge");
   likeButton.addEventListener("click", async () => {
     try {
-      const response = await fetch(`${INVOLVE_API}${pokemonData.id}`);
-      const data = await response.json();
+        const response = await fetch(`${INVOLVE_API}${pokemonData.id}`);
+        const data = await response.json();
 
-      const item = data.find((item) => item.item_id === pokemonData.id);
-      if (item && item.likes !== undefined) {
-
-        const newLikesCount = item.likes + 1; // increment likes count
-        likeCount.textContent = newLikesCount;
-      } else {
-        throw new Error("Error: 'likes' property not found in API response.");
-      }
+        const item = data.find((item) => item.item_id === pokemonData.id);
+        if (item && item.likes !== undefined) {
+          const newLikesCount = item.likes + 1; // increment likes count
+          likeCount.textContent = newLikesCount;
+        } else {
+          throw new Error("Error: 'likes' property not found in API response.");
+        }
     } catch (error) {
       throw new Error(error);
     }
   });
-  
+
   return listItem;
 }
-
 
 export default showPokemon;

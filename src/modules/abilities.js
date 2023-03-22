@@ -20,9 +20,9 @@ async function showAbilities() {
 
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-      <span class="pokemon-name">${pokemonData.name}</span>
-      <span class="pokemon-types">${types}</span>
-      <span class="pokemon-abilities">${abilities}</span>
+      <span class="pokemon-name">Name: ${pokemonData.name}</span>
+      <span class="pokemon-types">Type: ${types}</span>
+      <span class="pokemon-abilities">Abilities: ${abilities}</span>
     `;
     abilitiesList.appendChild(listItem);
   });
