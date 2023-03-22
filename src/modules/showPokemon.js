@@ -22,42 +22,19 @@ async function showPokemon() {
 function createListItem(pokemonData) {
   const listItem = document.createElement("li");
 
-  const abilities = pokemonData.abilities
-    .map((ability) => ability.ability.name)
-    .join(", ");
-  const stats = pokemonData.stats
-    .map((stat) => `${stat.stat.name}: ${stat.base_stat}`)
-    .join(", ");
-
   listItem.innerHTML = `
     <img class="item-image" src="${pokemonData.sprites.front_default}">
         <span class="item-name">${pokemonData.name}</span>
         <span class="item-name">${pokemonData.weight}</span>
-        <span class="item-name">Abilities: ${abilities}</span>
-        <span class="item-name">Stats: ${stats}</span>
+        <div class = "like-comment">
         <button class = "comments">Comment</button>
         <button class="like-button">
           Like <span class="badge">0</span>
-        </button>
+        </button></div>
       `;
 
   const likeButton = listItem.querySelector(".like-button");
   const likeCount = listItem.querySelector(".badge");
-
-  likeButton.addEventListener("click", async () => {
-    const response = await fetch(INVOLVE_API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        item_id: pokemonData.id,
-      }),
-    });
-    const likes = await response.json();
-    likeCount.innerHTML = likes.likes;
-  });
-
   return listItem;
 }
 
