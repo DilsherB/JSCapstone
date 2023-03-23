@@ -51,9 +51,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Github Flow execution]**
- 
-- **[Implement both Mobile and desktop version]**
+- **[Git Flow execution]**
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

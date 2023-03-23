@@ -3,26 +3,33 @@ const INVOLVE_API =
   "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eNcbFL1NPb8wUFbHRoP3/likes?item_id=";
 
   async function showPokemon() {
-  const response = await fetch(BASE_URL);
-  const data = await response.json();
-
-  const likeableItems = document.getElementById("likeable-items");
-
-  const promises = data.results.map((pokemon) => {
-    return fetch(pokemon.url).then((res) => res.json());
-  });
-
-  const pokemonDataArray = await Promise.all(promises);
-
-  pokemonDataArray.forEach((pokemonData) => {
-    const listItem = createListItem(pokemonData);
-    likeableItems.appendChild(listItem);
-  });
+    const response = await fetch(BASE_URL);
+    const data = await response.json();
   
-}
+    const likeableItems = document.getElementById("likeable-items");
+  
+    const promises = data.results.map((pokemon) => {
+      return fetch(pokemon.url).then((res) => res.json());
+    });
+  
+    const pokemonDataArray = await Promise.all(promises);
+  
+    // Create list items for each Pokemon
+    for (const pokemonData of pokemonDataArray) {
+      const listItem = await createListItem(pokemonData);
+      likeableItems.appendChild(listItem);
+    }
+  }
+  
 
-function createListItem(pokemonData) {
+async function createListItem(pokemonData) {
   const listItem = document.createElement("li");
+
+  // Fetch the API response to get the current likes count
+  const response = await fetch(`${INVOLVE_API}${pokemonData.id}`);
+  const data = await response.json();
+  const item = data.find((item) => item.item_id === pokemonData.id);
+  let numOfLikes = item ? item.likes : 0;
 
   // Create HTML for each item
   listItem.innerHTML = `
@@ -32,7 +39,7 @@ function createListItem(pokemonData) {
         <button class="like-button">
         <i class="fa fa-light fa-heart"></i>
         </button>
-        <span class="badge">0</span>Likes
+        <span class="badge">${numOfLikes}</span>Likes
         </div></span>
         <div class = "like-comment"> 
         <button class = "comments">Comment</button>
@@ -41,45 +48,39 @@ function createListItem(pokemonData) {
       `;
 
   // Add event listener to the like button
-
   const likeButton = listItem.querySelector(".like-button");
   const likeCount = listItem.querySelector(".badge");
+
   likeButton.addEventListener("click", async () => {
     try {
-      // Fetch the API response and increment likes count
-
-      const response = await fetch(`${INVOLVE_API}${pokemonData.id}`);
-      const data = await response.json();
-      const item = data.find((item) => item.item_id === pokemonData.id);
-      if (item && item.likes !== undefined) {
-        const newLikesCount = item.likes + 1;
-        likeCount.textContent = newLikesCount;
-      } else {
-        throw new Error("Error: 'likes' property not found in API response.");
-      }
+      // Increment likes count and update the like count text
+      numOfLikes++;
+      likeCount.textContent = numOfLikes;
 
       // Update the API with the new likes count
-
-      const updatedResponse = await fetch(`${INVOLVE_API}${pokemonData.id}`,{
-        method: 'POST',
+      const updatedResponse = await fetch(`${INVOLVE_API}${pokemonData.id}`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(
-          {
-            item_id: pokemonData.id
-          }
-        )
+        body: JSON.stringify({
+          item_id: pokemonData.id,
+          likes: numOfLikes,
+        }),
       });
-      //return updated response
-      return updatedResponse;
+
+      // Handle any errors that may occur
+      if (!updatedResponse.ok) {
+        throw new Error("Failed to update likes count.");
+      }
     } catch (error) {
-      // Throw an error if any occurs
-      throw new Error(`Error occurred while updating likes: ${error.message}`);
+      // If there is an error, revert the like count back to the previous count
+      numOfLikes--;
+      likeCount.textContent = numOfLikes;
+      console.error(error);
     }
   });
 
   return listItem;
 }
-
-export default showPokemon;
+export default showPokemon
