@@ -1,29 +1,8 @@
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=6&offset=0";
-const INVOLVE_API =
-  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eNcbFL1NPb8wUFbHRoP3/likes?item_id=";
+const BASE_URL = 'https://pokeapi.co/api/v2/pokemon?limit=6&offset=0';
+const INVOLVE_API = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eNcbFL1NPb8wUFbHRoP3/likes?item_id=';
 
-  async function showPokemon() {
-    const response = await fetch(BASE_URL);
-    const data = await response.json();
-  
-    const likeableItems = document.getElementById("likeable-items");
-  
-    const promises = data.results.map((pokemon) => {
-      return fetch(pokemon.url).then((res) => res.json());
-    });
-  
-    const pokemonDataArray = await Promise.all(promises);
-  
-    // Create list items for each Pokemon
-    for (const pokemonData of pokemonDataArray) {
-      const listItem = await createListItem(pokemonData);
-      likeableItems.appendChild(listItem);
-    }
-  }
-  
-
- export async function createListItem(pokemonData) {
-  const listItem = document.createElement("li");
+export async function createListItem(pokemonData) {
+  const listItem = document.createElement('li');
 
   // Fetch the API response to get the current likes count
   const response = await fetch(`${INVOLVE_API}${pokemonData.id}`);
@@ -33,35 +12,34 @@ const INVOLVE_API =
 
   // Create HTML for each item
   listItem.innerHTML = `
-    <img class="item-image" src="${pokemonData.sprites.front_default}">
-        <span class="item-name">Name: ${pokemonData.name}
-        <div id = "like">
-        <button class="like-button">
-        <i class="fa fa-light fa-heart"></i>
-        </button>
-        <span class="badge">${numOfLikes}</span>Likes
-        </div></span>
-        <div class = "like-comment"> 
-        <button class = "comments">Comment</button>
-        <button class = "reservation">reservation</button>
-       </div>
-      `;
-
+      <img class="item-image" src="${pokemonData.sprites.front_default}">
+          <span class="item-name">Name: ${pokemonData.name}
+          <div id = "like">
+          <button class="like-button">
+          <i class="fa fa-light fa-heart"></i>
+          </button>
+          <span class="badge">${numOfLikes}</span>Likes
+          </div></span>
+          <div class = "like-comment"> 
+          <button class = "comments">Comment</button>
+          <button class = "reservation">reservation</button>
+         </div>
+        `;
   // Add event listener to the like button
-  const likeButton = listItem.querySelector(".like-button");
-  const likeCount = listItem.querySelector(".badge");
+  const likeButton = listItem.querySelector('.like-button');
+  const likeCount = listItem.querySelector('.badge');
 
-  likeButton.addEventListener("click", async () => {
+  likeButton.addEventListener('click', async () => {
     try {
       // Increment likes count and update the like count text
-      numOfLikes++;
+      numOfLikes += 1;
       likeCount.textContent = numOfLikes;
 
       // Update the API with the new likes count
       const updatedResponse = await fetch(`${INVOLVE_API}${pokemonData.id}`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           item_id: pokemonData.id,
@@ -71,11 +49,11 @@ const INVOLVE_API =
 
       // Handle any errors that may occur
       if (!updatedResponse.ok) {
-        throw new Error("Failed to update likes count.");
+        throw new Error('Failed to update likes count.');
       }
     } catch (error) {
       // If there is an error, revert the like count back to the previous count
-      numOfLikes--;
+      numOfLikes -= 1;
       likeCount.textContent = numOfLikes;
       // throw new Error(error);
     }
@@ -83,4 +61,20 @@ const INVOLVE_API =
 
   return listItem;
 }
-export default showPokemon
+
+async function showPokemon() {
+  const response = await fetch(BASE_URL);
+  const data = await response.json();
+  const likeableItems = document.getElementById('likeable-items');
+  const promises = data.results.map((pokemon) => fetch(pokemon.url).then((res) => res.json()));
+  const pokemonDataArray = await Promise.all(promises);
+  // Create list items for each Pokemon
+  // eslint-disable-next-line no-restricted-syntax
+  for (const pokemonData of pokemonDataArray) {
+    // eslint-disable-next-line no-await-in-loop
+    const listItem = await createListItem(pokemonData);
+    likeableItems.appendChild(listItem);
+  }
+}
+
+export default showPokemon;
