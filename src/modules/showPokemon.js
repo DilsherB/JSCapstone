@@ -22,7 +22,7 @@ const INVOLVE_API =
   }
   
 
-async function createListItem(pokemonData) {
+ export async function createListItem(pokemonData) {
   const listItem = document.createElement("li");
 
   // Fetch the API response to get the current likes count
@@ -77,7 +77,7 @@ async function createListItem(pokemonData) {
       // If there is an error, revert the like count back to the previous count
       numOfLikes--;
       likeCount.textContent = numOfLikes;
-      console.error(error);
+      // throw new Error(error);
     }
   });
 
