@@ -23,7 +23,7 @@ window.activePopUp = async (index) => {
     </div>
     <div class="show-details">
     <div class="show-details-1">
-          <span>Score: ${parseInt(arrUNeed.score * 100, 10)}%</span>
+          <span>Ratings: ${parseInt(arrUNeed.rating.average)}%</span>
           <span>Network: ${
   arrUNeed.network ? arrUNeed.network.name : 'Unkown'
 }</span>
