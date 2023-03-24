@@ -7,6 +7,6 @@ const footer = () => {
     </div>
   `;
   return ourFooter;
-}
+};
 
 export default footer;

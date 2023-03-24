@@ -1,7 +1,6 @@
 export async function getData() {
   const response = await fetch('https://api.tvmaze.com/shows');
   const myJson = await response.json();
-  console.log(myJson);
 
   const likesResponse = await fetch(
     'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4aTSjUAMwHbqF73Z3l5i/likes',
