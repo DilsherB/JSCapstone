@@ -25,15 +25,6 @@
   list-style: none;
 }
 
-.nav ul li {
-  min-width: max-content;
-}
-
-.logo img {
-  width: 180px;
-  margin-left: 70%;
-}
-
 .items-list li {
   display: flex;
   flex-direction: column;
@@ -47,6 +38,15 @@
   border: 3.5px solid #66c0c1;
   box-shadow: 5px 1px 25px 1px #535353;
   min-width: 220px;
+}
+
+.nav ul li {
+  min-width: max-content;
+}
+
+.logo img {
+  width: 180px;
+  margin-left: 70%;
 }
 
 .footer {
@@ -95,16 +95,16 @@
   border-radius: 5px;
 }
 
-.comments:hover,
-#comment-btn:hover {
-  scale: 1.05;
-  cursor: pointer;
-}
-
 #comment-btn {
   width: 100px;
   align-self: center;
   border-radius: 8px;
+}
+
+.comments:hover,
+#comment-btn:hover {
+  scale: 1.05;
+  cursor: pointer;
 }
 
 .reservations {
