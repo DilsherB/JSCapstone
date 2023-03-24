@@ -57,7 +57,7 @@
 
 
 ## 🚀 Live Demo <a name="Live-Demo"></a>
-## 🚀 Live Video <a name="Live-Video" href = "https://www.loom.com/share/dd99e4708edf407cb67d7d2dbb4f2004">Live video </a>
+## 🚀 About Project Video <a name="Live-Video" href = "https://www.loom.com/share/dd99e4708edf407cb67d7d2dbb4f2004">Live video </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -74,36 +74,36 @@ In order to run this project you need:
 Clone this repository to your desired folder: 
 Use Terminal:
  
-cd my-folder
+`cd my-folder`
  
-git clone 
+`git clone` 
 
 ### Install
 
 Install this project with:
 
-cd my-project
+`cd my-project`
  
-npm install
+`npm install`
 
 
 ### Run tests
 
 To run tests, run the following command:
  
-Npx hint .   for testing the html file errors
+`Npx hint .`   for testing the html file errors
  
-npx stylelint "**/*.{css,scss}"     to check errors for CSS file.
+`npx stylelint "**/*.{css,scss}"`     to check errors for CSS file.
 
- npx eslint .                      to check javascript errors
+ `npx eslint .`                      to check javascript errors
 
-npm install --save-dev jest   
+`npm install --save-dev jest`   
 
-npm install --save-dev jest-environment-jsdom
+`npm install --save-dev jest-environment-jsdom`
 
-npm install --save-dev @babel/plugin-transform-modules-commonjs
+`npm install --save-dev @babel/plugin-transform-modules-commonjs`
 
-npm test
+`npm test`
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -111,11 +111,17 @@ npm test
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 ****
+👤 **Dilsher Balouch**
 
-- GitHub: []()
-- Twitter: []()
-- LinkedIn: []()
+- GitHub: [@Dilsher](https://github.com/DilsherB)
+- Twitter: [@Dilsher](https://twitter.com/_brilliantMindz)
+- LinkedIn: [@Dilsher](https://www.linkedin.com/in/brilliantmindz/)
+
+👤 **Rishi Mishra**
+
+- GitHub: [@Rishi-Mishra0704](https://github.com/Rishi-Mishra0704)
+- Twitter: [@RishiMi31357764](https://twitter.com/RishiMi31357764)
+- LinkedIn: [@Rishi](https://www.linkedin.com/in/rishi-mishra-756718257/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,5 +157,5 @@ I would like to thank everyone contributed the completion of this project
 
 
 ## 📝 License <a name="license"></a>
-This project is [MIT](./LICENSE.md) licensed.
+This project is ([MIT](LICENSE)) licensed.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
