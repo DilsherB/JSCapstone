@@ -30,11 +30,15 @@ describe('Items Count', () => {
   it('Full Items Count', async () => {
     const arr = [
       {
-        show: { id: 0, image: { medium: 'src' }, name: 'name' },
+        id: 0,
+        image: { medium: 'src' },
+        name: 'name',
         likes: 0,
       },
       {
-        show: { id: 0, image: { medium: 'src' }, name: 'name' },
+        id: 0,
+        image: { medium: 'src' },
+        name: 'name',
         likes: 0,
       },
     ];
