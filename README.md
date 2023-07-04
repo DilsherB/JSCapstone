@@ -15,6 +15,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-video)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -60,7 +61,9 @@
 
 <a href="https://jscapstone-dilsher.netlify.app/" target="_blank">See Live</a>
 
-## 🚀 About Project Video <a name="Live-Video" href = "https://www.loom.com/share/dd99e4708edf407cb67d7d2dbb4f2004">Live video </a>
+## 🚀 About Project Video <a name="Live-Video"></a>
+
+<a href = "https://www.loom.com/share/dd99e4708edf407cb67d7d2dbb4f2004">Live video </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
