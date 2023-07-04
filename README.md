@@ -57,11 +57,11 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 🚀 Live Demo <a name="Live-Demo">See Live</a>
+## 🚀 Live Demo <a name="live-demo">See Live</a>
 
 <a href="https://jscapstone-dilsher.netlify.app/" target="_blank">See Live</a>
 
-## 🚀 About Project Video <a name="Live-Video"></a>
+## 🚀 About Project Video <a name="live-video"></a>
 
 <a href = "https://www.loom.com/share/dd99e4708edf407cb67d7d2dbb4f2004">Live video </a>
 
